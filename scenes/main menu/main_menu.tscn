@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2f7pkdy3ju8l"]
+[gd_scene load_steps=4 format=3 uid="uid://b2f7pkdy3ju8l"]
 
 [ext_resource type="Texture2D" uid="uid://bd0i6k25bfvgi" path="res://assets/gfx/mainmenu/bkg.png" id="1_1trn1"]
+[ext_resource type="Script" path="res://code/mainmenu/main_menu.gd" id="1_8r3bd"]
 [ext_resource type="Texture2D" uid="uid://cmf0g6kb7nbkk" path="res://assets/gfx/mainmenu/logo.png" id="2_guhsg"]
 
 [node name="MainMenu" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8r3bd")
 
 [node name="Bkg" type="TextureRect" parent="."]
 layout_mode = 1
@@ -57,22 +59,22 @@ expand_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "NEW"
 
-[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="LoadButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "CONTINUE"
 
-[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "OPTIONS"
 
-[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "QUIT"
@@ -96,3 +98,5 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 22.0
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/QuitButton" to="." method="exit_game"]
