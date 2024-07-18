@@ -69,6 +69,11 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "CONTINUE"
 
+[node name="InstructionsButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "HOW TO PLAY"
+
 [node name="OptionsButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -99,5 +104,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 22.0
 
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/InstructionsButton" to="." method="open_instructions"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/OptionsButton" to="." method="open_options"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/QuitButton" to="." method="exit_game"]
