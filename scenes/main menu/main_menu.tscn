@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2f7pkdy3ju8l"]
+
+[ext_resource type="Texture2D" uid="uid://bd0i6k25bfvgi" path="res://assets/gfx/mainmenu/bkg.png" id="1_1trn1"]
+[ext_resource type="Texture2D" uid="uid://cmf0g6kb7nbkk" path="res://assets/gfx/mainmenu/logo.png" id="2_guhsg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bkg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1trn1")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LPadding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 19.0
+
+[node name="TPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 12.0
+
+[node name="Logo" type="TextureRect" parent="HBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_guhsg")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "NEW"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "CONTINUE"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "OPTIONS"
+
+[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "QUIT"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "17-JUL-24"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "cool beans productions"
+
+[node name="BPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RPadding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 22.0
