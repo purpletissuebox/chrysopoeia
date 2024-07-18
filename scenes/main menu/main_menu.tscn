@@ -99,4 +99,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 22.0
 
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/OptionsButton" to="." method="open_options"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/QuitButton" to="." method="exit_game"]
