@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SFX_Tracklist" load_steps=2 format=3 uid="uid://ckno5wy8pkla6"]
+
+[ext_resource type="Script" path="res://code/common/sound_driver/sfx_tracklist.gd" id="1_1pfsh"]
+
+[resource]
+script = ExtResource("1_1pfsh")
+songs = Array[String](["shred.wav"])

@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://assets/gfx/misc/icon.png"
 
+[autoload]
+
+SoundDriver="*res://code/common/sound_driver/sound_driver.gd"
+
 [dotnet]
 
 project/assembly_name="New Game Project"

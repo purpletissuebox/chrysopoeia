@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BGM_Tracklist" load_steps=4 format=3 uid="uid://cc55m6vpyhpqv"]
+
+[ext_resource type="Script" path="res://code/common/sound_driver/bgm_tracklist.gd" id="1_gm11q"]
+[ext_resource type="Script" path="res://code/common/sound_driver/bgm_sequence.gd" id="2_72gla"]
+
+[sub_resource type="Resource" id="Resource_ixjjt"]
+script = ExtResource("2_72gla")
+name = "cut_Lingons.mp3"
+loop_start = 5.374
+loop_end = 37.376
+
+[resource]
+script = ExtResource("1_gm11q")
+songs = Array[ExtResource("2_72gla")]([SubResource("Resource_ixjjt")])
