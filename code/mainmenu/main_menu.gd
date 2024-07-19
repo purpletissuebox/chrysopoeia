@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	SoundDriver.playBGM(SoundDriver.SONG_IDS.FIRST_SONG)
+	SoundDriver.playBGM(SoundDriver.BGM_IDS.FIRST_SONG)
 
 func exit_game():
 	get_tree().quit()
