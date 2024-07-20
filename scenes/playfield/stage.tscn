@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ijik3jx1w70t"]
+
+[ext_resource type="PackedScene" uid="uid://dpn3fhdio67mx" path="res://assets/gfx/playfield/map.blend" id="1_5ii3m"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_obvfd"]
+
+[node name="Stage" type="Node3D"]
+
+[node name="Collision" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_obvfd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 10, 3.88, 8.203)
+far = 100.0
+
+[node name="map" parent="." instance=ExtResource("1_5ii3m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
