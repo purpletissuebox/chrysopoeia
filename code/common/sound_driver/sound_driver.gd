@@ -3,7 +3,6 @@ extends Node
 const SFXLIST:SFX_Tracklist = preload("res://assets/audio/sfx/SFXLIST.tres")
 const TRACKLIST:BGM_Tracklist = preload("res://assets/audio/bgm/TRACKLIST.tres")
 var bgm_player:AudioStreamPlayer
-var fader
 
 var overall_sfx_volume:float = 1.0
 var overall_bgm_volume:float = 1.0:
@@ -28,7 +27,6 @@ enum SFX_IDS
 
 func _ready():
 	bgm_player = AudioStreamPlayer.new()
-	fader = self.create_tween().set_trans(Tween.TRANS_CIRC)
 	self.add_child(bgm_player)
 
 func playSFX(effect:SFX_IDS):
@@ -48,6 +46,7 @@ func endSFX(child:AudioStreamPlayer):
 
 func playBGM(song:BGM_IDS, transition_length: float = 1.0):
 	var stream_data = createStream(TRACKLIST.songs[song])
+	var fader = create_tween()
 	
 	fader.tween_property(bgm_player, "volume_db", -60, transition_length/2.0)
 	fader.play()
