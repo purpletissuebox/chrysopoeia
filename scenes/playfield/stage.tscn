@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://ijik3jx1w70t"]
+[gd_scene load_steps=5 format=3 uid="uid://ijik3jx1w70t"]
 
 [ext_resource type="PackedScene" uid="uid://dpn3fhdio67mx" path="res://assets/gfx/playfield/map.blend" id="1_5ii3m"]
+[ext_resource type="Texture2D" uid="uid://b00ljpuryhkd1" path="res://assets/gfx/playfield/grass.png" id="1_o7g5a"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_obvfd"]
 
+[sub_resource type="Environment" id="Environment_iy2ww"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
 [node name="Stage" type="Node3D"]
+
+[node name="map" parent="." instance=ExtResource("1_5ii3m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Collision" type="Node3D" parent="."]
 
@@ -14,8 +23,15 @@
 shape = SubResource("WorldBoundaryShape3D_obvfd")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 10, 3.88, 8.203)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 10)
+environment = SubResource("Environment_iy2ww")
+size = 0.05
 far = 100.0
 
-[node name="map" parent="." instance=ExtResource("1_5ii3m")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 0
+billboard = 1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_o7g5a")

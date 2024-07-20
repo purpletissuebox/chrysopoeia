@@ -4,5 +4,6 @@
 
 [resource]
 resource_name = "Material.001"
+disable_ambient_light = true
 albedo_texture = ExtResource("1_3lmoe")
-roughness = 0.5
+metallic_specular = 0.0
