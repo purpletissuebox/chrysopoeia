@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmhwrg8fl2lym"]
+
+[ext_resource type="PackedScene" uid="uid://ijik3jx1w70t" path="res://scenes/playfield/stage.tscn" id="1_5fnre"]
+
+[sub_resource type="Environment" id="Environment_gq5b5"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 10)
+environment = SubResource("Environment_gq5b5")
+size = 0.05
+far = 100.0
+
+[node name="Stage" parent="." instance=ExtResource("1_5fnre")]
