@@ -1,13 +1,15 @@
 class_name State extends Node
 
-func _init(parent: Entity)->void:
+signal trigger_state_change(x: Entity)
+
+func _enter(_parent: Entity)->void:
 	pass
 	
-func _run(delta: float, parent: Entity)->void:
+func _run(_delta: float, _parent: Entity)->void:
 	pass
 
-func _physics_run(delta: float, parent: Entity)->void:
+func _physics_run(_delta: float, _parent: Entity)->void:
 	pass
 
-func _exit(parent: Entity)->void:
+func _exit(_parent: Entity)->void:
 	pass
