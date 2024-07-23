@@ -1,6 +1,6 @@
-class_name Equipment extends Sprite3D
+class_name Equipment extends ChrysItem
 
 @export var armor_class: int
-@export var element: Constants.ELEMENTS
 @export var slot: Constants.EQUIP_SLOTS
-@export var listeners: Array[String]
+
+var ingredients: Array[ChrysItem]
