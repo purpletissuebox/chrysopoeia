@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxtedo41yl8yf"]
+
+[ext_resource type="Script" path="res://code/common/equipment/weapon.gd" id="1_waat6"]
+[ext_resource type="Texture2D" uid="uid://diwwutxb13c3d" path="res://scenes/equipment/default/forearm.png" id="2_ph0dr"]
+[ext_resource type="Texture2D" uid="uid://du1ttlvatvkra" path="res://scenes/equipment/default/forearm_back.png" id="3_6173a"]
+[ext_resource type="Texture2D" uid="uid://b170uoo2xfpdc" path="res://scenes/equipment/default/hand_back.png" id="4_vla1d"]
+[ext_resource type="Texture2D" uid="uid://7xbghb7ranac" path="res://scenes/equipment/default/hand_l.png" id="5_c30fo"]
+[ext_resource type="Texture2D" uid="uid://do3eesj53x7lg" path="res://scenes/equipment/default/shoulder.png" id="6_5rj8g"]
+[ext_resource type="Texture2D" uid="uid://bjkeolyo2euhh" path="res://scenes/equipment/default/shoulder_back.png" id="7_562rm"]
+
+[node name="EquipmentWeapon" type="Node" node_paths=PackedStringArray("L_shoulder_attachment", "L_elbow_attachment", "L_wrist_attachment", "L_hand_tip", "R_shoulder_attachment", "R_elbow_attachment", "R_wrist_attachment", "R_hand_tip", "arm_L_img", "forearm_L_img", "hand_L_img", "arm_R_img", "forearm_R_img", "hand_R_img")]
+script = ExtResource("1_waat6")
+L_shoulder_attachment = NodePath("shoulder")
+L_elbow_attachment = NodePath("elbow")
+L_wrist_attachment = NodePath("wrist")
+L_hand_tip = NodePath("hand")
+R_shoulder_attachment = NodePath("shoulder2")
+R_elbow_attachment = NodePath("elbow2")
+R_wrist_attachment = NodePath("wrist2")
+R_hand_tip = NodePath("hand2")
+arm_L_img = NodePath("Shoulder")
+forearm_L_img = NodePath("Forearm")
+hand_L_img = NodePath("HandL")
+arm_R_img = NodePath("ShoulderBack")
+forearm_R_img = NodePath("ForearmBack")
+hand_R_img = NodePath("HandBack")
+
+[node name="shoulder" type="Node2D" parent="."]
+position = Vector2(580, -192)
+
+[node name="elbow" type="Node2D" parent="."]
+position = Vector2(513, 90)
+
+[node name="wrist" type="Node2D" parent="."]
+position = Vector2(526, 259)
+
+[node name="hand" type="Node2D" parent="."]
+position = Vector2(555, 351)
+
+[node name="shoulder2" type="Node2D" parent="."]
+position = Vector2(884, -224)
+
+[node name="elbow2" type="Node2D" parent="."]
+position = Vector2(951, 90)
+
+[node name="wrist2" type="Node2D" parent="."]
+position = Vector2(1008, 219)
+
+[node name="hand2" type="Node2D" parent="."]
+position = Vector2(1061, 301)
+
+[node name="Forearm" type="Sprite2D" parent="."]
+position = Vector2(535, 146)
+texture = ExtResource("2_ph0dr")
+
+[node name="ForearmBack" type="Sprite2D" parent="."]
+position = Vector2(962, 133)
+texture = ExtResource("3_6173a")
+
+[node name="HandBack" type="Sprite2D" parent="."]
+position = Vector2(1046, 266)
+texture = ExtResource("4_vla1d")
+
+[node name="HandL" type="Sprite2D" parent="."]
+position = Vector2(547, 314)
+texture = ExtResource("5_c30fo")
+
+[node name="Shoulder" type="Sprite2D" parent="."]
+position = Vector2(534, -64)
+texture = ExtResource("6_5rj8g")
+
+[node name="ShoulderBack" type="Sprite2D" parent="."]
+position = Vector2(908, -67)
+texture = ExtResource("7_562rm")
