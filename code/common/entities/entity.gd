@@ -9,6 +9,7 @@ var num_hazards: int
 
 var signals_in_use: Array[String]
 
+@onready var sprite_3d = $Sprite3D
 @onready var area_3d = $Area3D
 @onready var mySkeleton = $Sprite3D/SubViewport/skeleton_root
 
@@ -40,6 +41,10 @@ func animate(anim_name:String):
 		mySkeleton.play_anim(skeleton_type + "/" + anim_name)
 
 func _physics_process(_delta):
+	if self.velocity.x < 0:
+		self.scale.x = -1
+	if self.velocity.x > 0:
+		self.scale.x = 1
 	move_and_slide()
 
 func _aim_at_point():
