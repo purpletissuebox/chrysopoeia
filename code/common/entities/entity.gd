@@ -6,7 +6,6 @@ class_name Entity extends CharacterBody3D
 var current_health: int
 @export var max_mana: int
 var current_mana: int
-var position_xz: Vector2
 
 var signals_in_use: Array[String]
 
