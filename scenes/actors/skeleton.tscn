@@ -1,13 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://boy2gscf0adw3"]
+[gd_scene load_steps=23 format=3 uid="uid://boy2gscf0adw3"]
 
 [ext_resource type="Script" path="res://code/common/entities/skeleton.gd" id="1_ak1p4"]
-[ext_resource type="Animation" uid="uid://cjv377wknlsw8" path="res://assets/animation/humanoid_idle.tres" id="2_bdesw"]
+[ext_resource type="Animation" uid="uid://1xxjsg5ovyl3" path="res://assets/animation/humanoid_idle.res" id="2_8eiyg"]
 [ext_resource type="Texture2D" uid="uid://bxswey0lby83h" path="res://scenes/equipment/default/pelvis.png" id="2_ryb5o"]
 [ext_resource type="Texture2D" uid="uid://i006vri136nw" path="res://scenes/equipment/default/thigh.png" id="3_71bqv"]
+[ext_resource type="Animation" uid="uid://druayhkyprbj5" path="res://assets/animation/humanoid_walk.res" id="3_aug7j"]
 [ext_resource type="Texture2D" uid="uid://b5jk2avu43osw" path="res://scenes/equipment/default/calf.png" id="4_0v7tr"]
+[ext_resource type="Animation" uid="uid://bsbwqjawadwwr" path="res://assets/animation/humanoid_skid.res" id="4_lot1d"]
 [ext_resource type="Texture2D" uid="uid://crte6t571o6pu" path="res://scenes/equipment/default/foot.png" id="5_7b0bd"]
+[ext_resource type="Animation" uid="uid://cs3fxq88ad7t4" path="res://assets/animation/humanoid_jump.res" id="5_nnlc1"]
 [ext_resource type="Texture2D" uid="uid://c6ek04nxxyxc1" path="res://scenes/equipment/default/chest.png" id="6_1y75n"]
+[ext_resource type="Animation" uid="uid://dowhaevo43fjb" path="res://assets/animation/humanoid_peak.res" id="6_uwudo"]
 [ext_resource type="Texture2D" uid="uid://dl0kcwb1n7f4b" path="res://scenes/equipment/default/head.png" id="7_pjjwb"]
+[ext_resource type="Animation" uid="uid://cesityswiqjlt" path="res://assets/animation/humanoid_fall.res" id="7_psd2j"]
 [ext_resource type="Texture2D" uid="uid://do3eesj53x7lg" path="res://scenes/equipment/default/shoulder.png" id="8_1uqtk"]
 [ext_resource type="Texture2D" uid="uid://diwwutxb13c3d" path="res://scenes/equipment/default/forearm.png" id="9_55mjs"]
 [ext_resource type="Texture2D" uid="uid://7xbghb7ranac" path="res://scenes/equipment/default/hand_l.png" id="10_wl0hr"]
@@ -217,7 +222,12 @@ _data = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1lao2"]
 _data = {
-"idle": ExtResource("2_bdesw")
+"fall": ExtResource("7_psd2j"),
+"idle": ExtResource("2_8eiyg"),
+"jump": ExtResource("5_nnlc1"),
+"peak": ExtResource("6_uwudo"),
+"skid": ExtResource("4_lot1d"),
+"walk": ExtResource("3_aug7j")
 }
 
 [node name="skeleton_root" type="Node2D"]
@@ -225,7 +235,7 @@ scale = Vector2(0.235, 0.235)
 script = ExtResource("1_ak1p4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -325)
+limit_bottom = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -289,7 +299,7 @@ rotation = -6.21337
 
 [node name="calf_r_graphic" type="Sprite2D" parent="pelvis_pivot/thigh_r_pivot/calf_r_pivot"]
 z_index = 4
-rotation = -1.32749
+rotation = -1.23029
 texture = ExtResource("4_0v7tr")
 offset = Vector2(10, 81)
 
@@ -345,7 +355,7 @@ position = Vector2(169.499, 0)
 
 [node name="hand_l_graphic" type="Sprite2D" parent="pelvis_pivot/chest_pivot/shoulder_l_pivot/forearm_l_pivot/hand_l_pivot"]
 z_index = 12
-rotation = -1.26544
+rotation = -1.20639
 texture = ExtResource("10_wl0hr")
 offset = Vector2(21, 55)
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmhwrg8fl2lym"]
 
-[ext_resource type="PackedScene" uid="uid://ijik3jx1w70t" path="res://scenes/playfield/stage.tscn" id="1_jdm2r"]
-[ext_resource type="PackedScene" uid="uid://b8wbhcgwtflet" path="res://scenes/actors/entity.tscn" id="3_c561y"]
+[ext_resource type="PackedScene" uid="uid://ijik3jx1w70t" path="res://scenes/gameplay/stage.tscn" id="1_jdm2r"]
+[ext_resource type="PackedScene" uid="uid://clok42wxnbpwc" path="res://scenes/actors/player/player.tscn" id="2_dp70j"]
 
 [sub_resource type="Environment" id="Environment_gq5b5"]
 ambient_light_source = 2
@@ -20,5 +20,6 @@ far = 100.0
 
 [node name="Stage" parent="." instance=ExtResource("1_jdm2r")]
 
-[node name="myEntity" parent="." instance=ExtResource("3_c561y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.74797)
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_dp70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34319, 5.09733)
+max_health = 1
