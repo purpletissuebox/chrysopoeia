@@ -7,7 +7,7 @@ func _entry(player: Player, params: PSMParams):
 	player.animate("jump")
 
 func _main(player: Player, params: PSMParams, _delta: float) -> PState:
-	if player.velocity.y < -params.fall_threshold:
+	if player.velocity.y < params.fall_threshold:
 		player.broadcast("jump_peaked", [player])
 		return peak_state
 	else:
