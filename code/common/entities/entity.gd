@@ -5,10 +5,19 @@ class_name Entity extends CharacterBody3D
 @export var max_health: int
 var current_health: int
 var current_anim: String
+var num_hazards: int
 
 var signals_in_use: Array[String]
 
+@onready var area_3d = $Area3D
 @onready var mySkeleton = $Sprite3D/SubViewport/skeleton_root
+
+func _ready():
+	area_3d.area_entered.connect(update_collisions.bind(1))
+	area_3d.area_exited.connect(update_collisions.bind(-1))
+
+func update_collisions(x: int):
+	num_hazards += x
 
 func broadcast(event: String, args: Array):
 	if event in signals_in_use:
