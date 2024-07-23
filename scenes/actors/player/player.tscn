@@ -8,13 +8,13 @@
 [sub_resource type="Resource" id="Resource_gve85"]
 script = ExtResource("3_vu7j6")
 gravity = 7.0
-acceleration = 100.0
+acceleration = 40.0
 top_speed = 4.0
-jump_force = 10.0
-fall_threshold = -0.5
+jump_force = 4.0
+fall_threshold = 0.75
 stuntimer = 0.3
-friction = 5.0
-skid_threshold = 0.2
+friction = 20.0
+skid_threshold = 0.1
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1k75v"]
 viewport_path = NodePath("Sprite3D/SubViewport")
