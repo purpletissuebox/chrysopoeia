@@ -2,9 +2,9 @@ extends PState
 
 @export var rise_state: PState
 
-func _main(player: Player, _params: PSMParams, _delta: float) -> PState:
-	if Input.is_action_pressed("chrys_jump"):
-		player.broadcast(Constants.listeners[Constants.LISTENERS.JUMPED], [player])
+func _main(player: Entity, _params: PSMParams, _delta: float) -> PState:
+	if player._wants_to_jump():
+		player.broadcast("jumped", [player])
 		return rise_state
 	else:
 		return null

@@ -1,11 +1,11 @@
 extends PState
 
-func _main(player: Player, params: PSMParams, delta: float):
+func _main(player: Entity, params: PSMParams, delta: float):
 	var mvmnt: Vector3
 	
-	mvmnt.x = Input.get_axis("chrys_left", "chrys_right")
+	mvmnt.x = player._get_movement_direction().x
 	mvmnt.y = 0
-	mvmnt.z = Input.get_axis("chrys_up", "chrys_down")
+	mvmnt.z = player._get_movement_direction().y
 	mvmnt = mvmnt.normalized()*params.top_speed
 	
 	if mvmnt != Vector3.ZERO:

@@ -1,7 +1,7 @@
 class_name PStateMachine extends PState
 
 @export var initial_state: PState
-@export var doll: Player
+@export var doll: Entity
 var params: PSMParams
 var params_clean: PSMParams
 

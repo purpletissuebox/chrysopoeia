@@ -4,11 +4,14 @@ class_name Player extends Entity
 
 @onready var p_state_machine = $PStateMachine
 
-func _ready():
-	p_state_machine.pull_params.connect(swap_params)
-	p_state_machine.params = self.params.duplicate()
-	p_state_machine.params_clean = self.params.duplicate()
+func _aim_at_point():
+	pass
 
-func swap_params(clean_params: PSMParams):
-	p_state_machine.params = self.params.duplicate()
-	self.params = clean_params.duplicate()
+func _wants_to_jump():
+	return Input.is_action_just_pressed("chrys_jump")
+
+func _get_movement_direction():
+	var result:Vector2 = Vector2.ZERO
+	result.x = Input.get_axis("chrys_left", "chrys_right")
+	result.y = Input.get_axis("chrys_up", "chrys_down")
+	return result
