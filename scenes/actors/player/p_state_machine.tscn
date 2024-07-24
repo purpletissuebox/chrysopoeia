@@ -1,0 +1,69 @@
+[gd_scene load_steps=15 format=3 uid="uid://uonuxhdxyyq"]
+
+[ext_resource type="Script" path="res://code/player/state_machine.gd" id="1_otpgc"]
+[ext_resource type="Script" path="res://code/player/states/ouch.gd" id="2_ttlcs"]
+[ext_resource type="Script" path="res://code/player/states/hitstun.gd" id="3_wqdw5"]
+[ext_resource type="Script" path="res://code/player/states/knockback.gd" id="4_0o2oe"]
+[ext_resource type="Script" path="res://code/player/states/controllable.gd" id="4_mpyjw"]
+[ext_resource type="Script" path="res://code/player/states/movement.gd" id="5_5pwny"]
+[ext_resource type="Script" path="res://code/player/states/dead.gd" id="5_hvesm"]
+[ext_resource type="Script" path="res://code/player/states/grounded.gd" id="6_13wpj"]
+[ext_resource type="Script" path="res://code/player/states/idle.gd" id="7_54m0w"]
+[ext_resource type="Script" path="res://code/player/states/walk.gd" id="8_ae4r7"]
+[ext_resource type="Script" path="res://code/player/states/airborne.gd" id="9_dff5s"]
+[ext_resource type="Script" path="res://code/player/states/rise.gd" id="10_hrhwh"]
+[ext_resource type="Script" path="res://code/player/states/peak.gd" id="11_ty6fa"]
+[ext_resource type="Script" path="res://code/player/states/fall.gd" id="12_l6f3i"]
+
+[node name="PStateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_otpgc")
+initial_state = NodePath("controllable/movement/ground/idle")
+
+[node name="ouch" type="Node" parent="." node_paths=PackedStringArray("idle_state", "dead_state")]
+script = ExtResource("2_ttlcs")
+idle_state = NodePath("../controllable/movement/ground/idle")
+dead_state = NodePath("dead")
+
+[node name="hitstun" type="Node" parent="ouch"]
+script = ExtResource("3_wqdw5")
+
+[node name="knockback" type="Node" parent="ouch"]
+script = ExtResource("4_0o2oe")
+
+[node name="dead" type="Node" parent="ouch"]
+script = ExtResource("5_hvesm")
+
+[node name="controllable" type="Node" parent="." node_paths=PackedStringArray("pain_state", "air_pain_state")]
+script = ExtResource("4_mpyjw")
+pain_state = NodePath("../ouch/hitstun")
+air_pain_state = NodePath("../ouch/knockback")
+
+[node name="movement" type="Node" parent="controllable"]
+script = ExtResource("5_5pwny")
+
+[node name="ground" type="Node" parent="controllable/movement" node_paths=PackedStringArray("rise_state")]
+script = ExtResource("6_13wpj")
+rise_state = NodePath("../air/rise")
+
+[node name="idle" type="Node" parent="controllable/movement/ground" node_paths=PackedStringArray("walking_state")]
+script = ExtResource("7_54m0w")
+walking_state = NodePath("../walk")
+
+[node name="walk" type="Node" parent="controllable/movement/ground" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("8_ae4r7")
+idle_state = NodePath("../idle")
+
+[node name="air" type="Node" parent="controllable/movement"]
+script = ExtResource("9_dff5s")
+
+[node name="rise" type="Node" parent="controllable/movement/air" node_paths=PackedStringArray("peak_state")]
+script = ExtResource("10_hrhwh")
+peak_state = NodePath("../peak")
+
+[node name="peak" type="Node" parent="controllable/movement/air" node_paths=PackedStringArray("fall_state")]
+script = ExtResource("11_ty6fa")
+fall_state = NodePath("../fall")
+
+[node name="fall" type="Node" parent="controllable/movement/air" node_paths=PackedStringArray("land_state")]
+script = ExtResource("12_l6f3i")
+land_state = NodePath("../../ground/walk")

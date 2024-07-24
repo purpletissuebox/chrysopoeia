@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://duobydaci5jou"]
+
+[ext_resource type="Texture2D" uid="uid://dd0ucg2vb7su5" path="res://assets/gfx/playfield/road.png" id="1_3lmoe"]
+
+[resource]
+resource_name = "Material.001"
+shading_mode = 0
+albedo_texture = ExtResource("1_3lmoe")

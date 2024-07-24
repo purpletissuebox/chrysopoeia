@@ -6,6 +6,10 @@
 export.cfg
 export_presets.cfg
 
+# Temporary source files
+*.tmp
+*.blend1
+
 # Imported translations (automatically generated from CSV files)
 *.translation
 

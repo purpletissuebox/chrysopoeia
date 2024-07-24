@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://ouiwxa32600w"]
+
+[ext_resource type="Script" path="res://code/common/equipment/boots.gd" id="1_1l5lp"]
+[ext_resource type="Texture2D" uid="uid://b5jk2avu43osw" path="res://scenes/equipment/default/calf.png" id="2_ntfw8"]
+[ext_resource type="Texture2D" uid="uid://i006vri136nw" path="res://scenes/equipment/default/thigh.png" id="3_t3m1u"]
+[ext_resource type="Texture2D" uid="uid://crte6t571o6pu" path="res://scenes/equipment/default/foot.png" id="4_subop"]
+
+[node name="EquipmentBoots" type="Node" node_paths=PackedStringArray("L_hip_attachment", "L_knee_attachment", "L_ankle_attachment", "L_foot_tip", "R_hip_attachment", "R_knee_attachment", "R_ankle_attachment", "R_foot_tip", "leg_L_img", "calf_L_img", "foot_L_img", "leg_R_img", "calf_R_img", "foot_R_img")]
+script = ExtResource("1_1l5lp")
+L_hip_attachment = NodePath("hip")
+L_knee_attachment = NodePath("knee")
+L_ankle_attachment = NodePath("ankle")
+L_foot_tip = NodePath("tip")
+R_hip_attachment = NodePath("hip")
+R_knee_attachment = NodePath("knee")
+R_ankle_attachment = NodePath("ankle")
+R_foot_tip = NodePath("tip")
+leg_L_img = NodePath("Thigh")
+calf_L_img = NodePath("Calf")
+foot_L_img = NodePath("Foot")
+leg_R_img = NodePath("Thigh")
+calf_R_img = NodePath("Calf")
+foot_R_img = NodePath("Foot")
+
+[node name="hip" type="Node2D" parent="."]
+position = Vector2(252, 65)
+
+[node name="knee" type="Node2D" parent="."]
+position = Vector2(299, 415)
+
+[node name="ankle" type="Node2D" parent="."]
+position = Vector2(369, 697)
+
+[node name="tip" type="Node2D" parent="."]
+position = Vector2(494, 759)
+
+[node name="Calf" type="Sprite2D" parent="."]
+position = Vector2(309, 496)
+texture = ExtResource("2_ntfw8")
+
+[node name="Thigh" type="Sprite2D" parent="."]
+position = Vector2(265, 220)
+texture = ExtResource("3_t3m1u")
+
+[node name="Foot" type="Sprite2D" parent="."]
+position = Vector2(413, 734)
+texture = ExtResource("4_subop")

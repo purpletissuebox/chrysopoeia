@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://clhhco3wwv4ka"]
+
+[ext_resource type="Script" path="res://code/common/equipment/helmet.gd" id="1_edwid"]
+[ext_resource type="Texture2D" uid="uid://dl0kcwb1n7f4b" path="res://scenes/equipment/default/head.png" id="2_m8cfb"]
+
+[node name="EquipmentHelm" type="Node" node_paths=PackedStringArray("neck_attachment", "head_tip", "head_img")]
+script = ExtResource("1_edwid")
+neck_attachment = NodePath("neck")
+head_tip = NodePath("tip")
+head_img = NodePath("Head")
+element = 2
+
+[node name="neck" type="Node2D" parent="."]
+position = Vector2(432, 455)
+
+[node name="tip" type="Node2D" parent="."]
+position = Vector2(475, 177)
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(425, 302)
+texture = ExtResource("2_m8cfb")

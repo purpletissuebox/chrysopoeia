@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ijik3jx1w70t"]
+
+[ext_resource type="PackedScene" uid="uid://dpn3fhdio67mx" path="res://assets/gfx/playfield/map.blend" id="1_5ii3m"]
+[ext_resource type="Texture2D" uid="uid://b00ljpuryhkd1" path="res://assets/gfx/playfield/grass.png" id="1_o7g5a"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_obvfd"]
+
+[node name="Stage" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_5ii3m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Collision" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_obvfd")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="Grass" type="Sprite3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 0
+billboard = 1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_o7g5a")
