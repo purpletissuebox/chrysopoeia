@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="chrysopoeia"
-run/main_scene="res://scenes/main menu/main_menu.tscn"
+run/main_scene="res://scenes/menus/root.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -78,3 +78,8 @@ chrys_helmet={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="Entities"
+3d_physics/layer_2="Attacks"

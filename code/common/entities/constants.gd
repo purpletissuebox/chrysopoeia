@@ -1,5 +1,7 @@
 extends Node
 
+signal change_mode
+
 enum ELEMENTS
 {
 	EARTH,
@@ -40,3 +42,28 @@ enum EQUIP_SLOTS
 	TWO_HAND = L_HAND | R_HAND,
 	COWL = HEAD | CHEST
 }
+
+enum LISTENERS
+{
+	JUMPED,
+	MOVED,
+	STOPPED,
+	PEAKED,
+	FELL,
+	RECOVERED,
+	WASHIT,
+	SCOREDHIT,
+	DIED
+}
+
+const listeners: Array[String] = [
+	"jumped",
+	"moved",
+	"stopped",
+	"peaked",
+	"fell",
+	"recovered",
+	"was_hit",
+	"scored_hit",
+	"died"
+]
