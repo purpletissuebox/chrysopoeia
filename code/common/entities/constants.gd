@@ -53,7 +53,8 @@ enum LISTENERS
 	RECOVERED,
 	WASHIT,
 	SCOREDHIT,
-	DIED
+	DIED,
+	LANDED,
 }
 
 const listeners: Array[String] = [
@@ -65,5 +66,6 @@ const listeners: Array[String] = [
 	"recovered",
 	"was_hit",
 	"scored_hit",
-	"died"
+	"died",
+	"landed",
 ]
