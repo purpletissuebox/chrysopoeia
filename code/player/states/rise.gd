@@ -8,7 +8,7 @@ func _entry(player: Player, params: PSMParams):
 
 func _main(player: Player, params: PSMParams, _delta: float) -> PState:
 	if player.velocity.y < params.fall_threshold:
-		player.broadcast("jump_peaked", [player])
+		player.broadcast(Constants.listeners[Constants.LISTENERS.PEAKED], [player])
 		return peak_state
 	else:
 		return null

@@ -5,7 +5,7 @@ extends PState
 
 func _main(player: Player, _params:PSMParams, _delta: float) -> PState:
 	if player.num_hazards > 0:
-		player.broadcast("took_hit", [player])
+		player.broadcast(Constants.listeners[Constants.LISTENERS.HIT], [player])
 		if player.is_on_floor():
 			return pain_state
 		else:

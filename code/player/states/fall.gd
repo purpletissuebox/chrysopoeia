@@ -7,7 +7,7 @@ func _entry(player: Player, _params: PSMParams):
 
 func _main(player: Player, _params:PSMParams, _delta: float) -> PState:
 	if player.is_on_floor():
-		player.broadcast("landed", [player])
+		player.broadcast(Constants.listeners[Constants.LISTENERS.LANDED] [player])
 		return land_state
 	else:
 		return null

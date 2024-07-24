@@ -7,7 +7,7 @@ func _entry(player: Player, _params: PSMParams):
 
 func _main(player: Player, params: PSMParams, _delta: float) -> PState:
 	if player.velocity.y < -params.fall_threshold:
-		player.broadcast("fell", [player])
+		player.broadcast(Constants.listeners[Constants.LISTENERS.FELL], [player])
 		return fall_state
 	else:
 		return null
