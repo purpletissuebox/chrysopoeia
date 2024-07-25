@@ -18,7 +18,7 @@ skid_threshold = 0.1
 [sub_resource type="ViewportTexture" id="ViewportTexture_1k75v"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[node name="CharacterBody3D" instance=ExtResource("1_4dufw")]
+[node name="Player" instance=ExtResource("1_4dufw")]
 script = ExtResource("2_as5t6")
 params = SubResource("Resource_gve85")
 skeleton_type = "humanoid"
