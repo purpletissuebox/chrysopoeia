@@ -9,7 +9,7 @@ func _get_movement_direction():
 	var result:Vector2 = Vector2.ZERO
 	
 	if player_ref != null:
-		result.x = sign(position.direction_to(player_ref.position).x)
-		result.y = sign(position.direction_to(player_ref.position).y)
-
+		result.x = position.direction_to(player_ref.position).x
+		result.y = position.direction_to(player_ref.position).z
+	
 	return result
