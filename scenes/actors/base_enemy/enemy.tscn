@@ -25,6 +25,7 @@ helm = null
 armor = null
 boots = null
 weap = null
+element = 1
 skeleton_type = "humanoid"
 
 [node name="Sprite3D" parent="." index="2"]

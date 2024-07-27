@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxtedo41yl8yf"]
+[gd_scene load_steps=10 format=3 uid="uid://cxtedo41yl8yf"]
 
 [ext_resource type="Script" path="res://code/common/equipment/weapon.gd" id="1_waat6"]
 [ext_resource type="Texture2D" uid="uid://diwwutxb13c3d" path="res://scenes/equipment/default/forearm.png" id="2_ph0dr"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://7xbghb7ranac" path="res://scenes/equipment/default/hand_l.png" id="5_c30fo"]
 [ext_resource type="Texture2D" uid="uid://do3eesj53x7lg" path="res://scenes/equipment/default/shoulder.png" id="6_5rj8g"]
 [ext_resource type="Texture2D" uid="uid://bjkeolyo2euhh" path="res://scenes/equipment/default/shoulder_back.png" id="7_562rm"]
+[ext_resource type="Script" path="res://code/common/entities/attack.gd" id="8_3lo3a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yvyq5"]
+size = Vector3(2, 2, 2)
 
 [node name="EquipmentWeapon" type="Node" node_paths=PackedStringArray("L_shoulder_attachment", "L_elbow_attachment", "L_wrist_attachment", "L_hand_tip", "R_shoulder_attachment", "R_elbow_attachment", "R_wrist_attachment", "R_hand_tip", "arm_L_img", "forearm_L_img", "hand_L_img", "arm_R_img", "forearm_R_img", "hand_R_img")]
 script = ExtResource("1_waat6")
@@ -72,3 +76,13 @@ texture = ExtResource("6_5rj8g")
 [node name="ShoulderBack" type="Sprite2D" parent="."]
 position = Vector2(908, -67)
 texture = ExtResource("7_562rm")
+
+[node name="Area3D" type="Area3D" parent="."]
+visible = false
+collision_layer = 0
+script = ExtResource("8_3lo3a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_yvyq5")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

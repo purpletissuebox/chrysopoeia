@@ -44,8 +44,12 @@ func equip(item: Equipment):
 		if sig not in signals_in_use:
 			self.add_user_signal(sig)
 			signals_in_use.append(sig)
+		
 		self.connect(sig, Callable(item, sig + "_triggered"))
-		self.add_child(item)
+	for child in item.get_children():
+		if child is Sprite2D:
+			child.queue_free()
+	self.add_child(item)
 	
 	if item is EquipmentHelm:
 		$Sprite3D/SubViewport/skeleton_root.swap_helmet(item)

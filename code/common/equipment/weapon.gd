@@ -16,4 +16,25 @@ class_name EquipmentWeapon extends Equipment
 @export var forearm_R_img: Sprite2D
 @export var hand_R_img: Sprite2D
 
+@onready var weapon = $Area3D
 var current_handedness: int
+
+signal swing(pos)
+
+func _init():
+	listeners.append("swing")
+	
+	pass
+	
+func swing_triggered(args:Array):
+	$Area3D.position = args[0]
+	$Area3D.show()
+	
+func set_attacker(entity:Entity):
+	weapon.attacker = entity
+	
+func _on_area_3d_area_entered(area):
+	var entity = area.get_parent()
+	if entity is Player:
+		weapon.hit_something(entity.find_child("Area3D"))
+		

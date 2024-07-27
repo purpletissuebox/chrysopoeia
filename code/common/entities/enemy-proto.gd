@@ -15,7 +15,11 @@ func setup_equipment():
 	equip(helm.instantiate())
 	equip(armor.instantiate())
 	equip(boots.instantiate())
-	equip(weap.instantiate())
+	
+	var new_weap = weap.instantiate()
+	equip(new_weap)
+	new_weap.set_attacker(self)
+	
 	put_clothes_on = true
 
 func _get_movement_direction():
@@ -34,4 +38,8 @@ func _get_movement_direction():
 	return result
 
 func take_a_swing():
-	pass
+	var weapon = find_child("EquipmentWeapon")
+	#if weapon:
+		#weapon.swing(self.position)
+	self.broadcast("swing", [self.position])
+	
