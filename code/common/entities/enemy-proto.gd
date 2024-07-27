@@ -39,7 +39,5 @@ func _get_movement_direction():
 
 func take_a_swing():
 	var weapon = find_child("EquipmentWeapon")
-	#if weapon:
-		#weapon.swing(self.position)
 	self.broadcast("swing", [self.position])
 	
