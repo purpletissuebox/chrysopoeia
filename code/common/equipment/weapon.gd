@@ -26,9 +26,15 @@ func _init():
 	
 	pass
 	
+	
+func _physics_process(delta):
+	if $Timer.is_stopped():
+		$Area3D/CollisionShape3D.disabled = true
+		
 func swing_triggered(args:Array):
 	$Area3D.position = args[0]
-	$Area3D.show()
+	$Area3D/CollisionShape3D.disabled = false
+	$Timer.start()
 	
 func set_attacker(entity:Entity):
 	weapon.attacker = entity
