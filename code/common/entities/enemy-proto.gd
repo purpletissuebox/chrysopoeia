@@ -24,7 +24,14 @@ func _get_movement_direction():
 		setup_equipment()
 
 	if player_ref != null:
-		result.x = position.direction_to(player_ref.position).x
-		result.y = position.direction_to(player_ref.position).z
-	
+		var direction_to_player = player_ref.position-self.position
+		if abs(direction_to_player.x) > 1.1 or abs(direction_to_player.z) > 1.1: 
+			result.x = position.direction_to(player_ref.position).x
+			result.y = position.direction_to(player_ref.position).z
+		else:
+			take_a_swing()
+			
 	return result
+
+func take_a_swing():
+	pass
