@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://code/common/entities/enemy-proto.gd" id="2_msrxb"]
 [ext_resource type="Script" path="res://code/player/psm_params.gd" id="3_dp0fi"]
 
-[sub_resource type="Resource" id="Resource_ycg0v"]
+[sub_resource type="Resource" id="Resource_5s4xw"]
 script = ExtResource("3_dp0fi")
 gravity = 7.0
 acceleration = 40.0
-top_speed = 4.0
+top_speed = 3.0
 jump_force = 4.0
 fall_threshold = 0.75
 stuntimer = 0.3
@@ -20,7 +20,11 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="SophmoreEnemy" instance=ExtResource("1_n0cdn")]
 script = ExtResource("2_msrxb")
-params = SubResource("Resource_ycg0v")
+params = SubResource("Resource_5s4xw")
+helm = null
+armor = null
+boots = null
+weap = null
 skeleton_type = "humanoid"
 
 [node name="Sprite3D" parent="." index="2"]
