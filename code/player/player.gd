@@ -4,8 +4,16 @@ class_name Player extends Entity
 
 @onready var p_state_machine = $PStateMachine
 
+
+signal was_hit
+
+
 func _init():
+	signals_in_use += ["was_hit"]
 	self.my_equipment = Inventory.equipped_items
+
+func was_hit_triggered():
+	print("HIT")
 
 func _aim_at_point():
 	pass
