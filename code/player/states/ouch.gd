@@ -4,10 +4,10 @@ extends PState
 @export var dead_state: PState
 var time_elapsed
 
-func _entry(_player: Player, _params:PSMParams):
+func _entry(_player: Entity, _params:PSMParams):
 	time_elapsed = 0
 
-func _main(player: Player, params:PSMParams, _delta: float) -> PState:
+func _main(player: Entity, params:PSMParams, _delta: float) -> PState:
 	if player.current_health <= 0:
 		player.broadcast("died", [player])
 		return dead_state

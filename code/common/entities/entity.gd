@@ -6,16 +6,27 @@ class_name Entity extends CharacterBody3D
 var current_health: int
 var current_anim: String
 var num_hazards: int
+@export var StateMachineParameters: PSMParams
 
 var signals_in_use: Array[String]
 
 @onready var sprite_3d = $Sprite3D
 @onready var area_3d = $Area3D
 @onready var mySkeleton = $Sprite3D/SubViewport/skeleton_root
+@onready var state_machine = $PStateMachine
+
 
 func _ready():
 	area_3d.area_entered.connect(update_collisions.bind(1))
 	area_3d.area_exited.connect(update_collisions.bind(-1))
+	
+	state_machine.pull_params.connect(swap_params)
+	state_machine.params = self.params.duplicate()
+	state_machine.params_clean = self.params.duplicate()
+
+func swap_params(clean_params: PSMParams):
+	state_machine.params = self.params.duplicate()
+	self.params = clean_params.duplicate()
 
 func update_collisions(x: int):
 	num_hazards += x
@@ -31,6 +42,16 @@ func equip(item: Equipment):
 			signals_in_use.append(sig)
 		self.connect(sig, Callable(item, sig + "_triggered"))
 		self.add_child(item)
+	
+	if item is EquipmentHelm:
+		$Sprite3D/SubViewport/skeleton_root.swap_helmet(item)
+	elif item is EquipmentArmor:
+		$Sprite3D/SubViewport/skeleton_root.swap_armor(item)
+	elif item is EquipmentBoots:
+		$Sprite3D/SubViewport/skeleton_root.swap_boots(item)
+	elif item is EquipmentWeapon:
+		$Sprite3D/SubViewport/skeleton_root.swap_arm(item, 0)
+		$Sprite3D/SubViewport/skeleton_root.swap_arm(item, 1)
 		
 func unequip(item: Equipment):
 	self.remove_child(item)
@@ -48,6 +69,9 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _aim_at_point():
+	pass
+
+func _wants_to_jump():
 	pass
 
 func _get_movement_direction():

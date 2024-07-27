@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://5sff1bg827t8"]
+
+[ext_resource type="Script" path="res://code/common/root.gd" id="1_c3xa0"]
+[ext_resource type="PackedScene" uid="uid://8lg8ngskb1tk" path="res://scenes/menus/logo.tscn" id="2_nmjb1"]
+
+[sub_resource type="Animation" id="Animation_kcl68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1pwmq"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3eln"]
+_data = {
+"RESET": SubResource("Animation_kcl68"),
+"fade": SubResource("Animation_1pwmq")
+}
+
+[node name="root" type="Node"]
+script = ExtResource("1_c3xa0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b3eln")
+}
+
+[node name="Control" parent="." instance=ExtResource("2_nmjb1")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

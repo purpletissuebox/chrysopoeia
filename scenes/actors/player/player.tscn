@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://clok42wxnbpwc"]
+[gd_scene load_steps=6 format=3 uid="uid://clok42wxnbpwc"]
 
 [ext_resource type="PackedScene" uid="uid://b8wbhcgwtflet" path="res://scenes/actors/entity.tscn" id="1_4dufw"]
-[ext_resource type="PackedScene" uid="uid://uonuxhdxyyq" path="res://scenes/actors/player/p_state_machine.tscn" id="2_5xnbb"]
 [ext_resource type="Script" path="res://code/player/player.gd" id="2_as5t6"]
 [ext_resource type="Script" path="res://code/player/psm_params.gd" id="3_vu7j6"]
 
@@ -19,13 +18,10 @@ skid_threshold = 0.1
 [sub_resource type="ViewportTexture" id="ViewportTexture_1k75v"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[node name="CharacterBody3D" instance=ExtResource("1_4dufw")]
+[node name="Player" instance=ExtResource("1_4dufw")]
 script = ExtResource("2_as5t6")
 params = SubResource("Resource_gve85")
 skeleton_type = "humanoid"
 
 [node name="Sprite3D" parent="." index="2"]
 texture = SubResource("ViewportTexture_1k75v")
-
-[node name="PStateMachine" parent="." index="3" node_paths=PackedStringArray("doll") instance=ExtResource("2_5xnbb")]
-doll = NodePath("..")
