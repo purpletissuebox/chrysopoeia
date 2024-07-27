@@ -42,6 +42,16 @@ func equip(item: Equipment):
 			signals_in_use.append(sig)
 		self.connect(sig, Callable(item, sig + "_triggered"))
 		self.add_child(item)
+	
+	if item is EquipmentHelm:
+		$Sprite3D/SubViewport/skeleton_root.swap_helmet(item)
+	elif item is EquipmentArmor:
+		$Sprite3D/SubViewport/skeleton_root.swap_armor(item)
+	elif item is EquipmentBoots:
+		$Sprite3D/SubViewport/skeleton_root.swap_boots(item)
+	elif item is EquipmentWeapon:
+		$Sprite3D/SubViewport/skeleton_root.swap_arm(item, 0)
+		$Sprite3D/SubViewport/skeleton_root.swap_arm(item, 1)
 		
 func unequip(item: Equipment):
 	self.remove_child(item)
