@@ -25,3 +25,7 @@ func _get_movement_direction():
 	result.x = Input.get_axis("chrys_left", "chrys_right")
 	result.y = Input.get_axis("chrys_up", "chrys_down")
 	return result
+	
+func _input(event):
+	if event.is_action_pressed("chrys_lhand"):
+		take_a_swing()
