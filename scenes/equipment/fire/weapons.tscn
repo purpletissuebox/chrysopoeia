@@ -81,6 +81,7 @@ texture = ExtResource("7_562rm")
 visible = false
 collision_layer = 2
 script = ExtResource("8_3lo3a")
+baseDmg = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Attack"]
 shape = SubResource("BoxShape3D_yvyq5")
