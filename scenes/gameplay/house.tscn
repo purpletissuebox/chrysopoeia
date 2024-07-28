@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcd61i8aadjpj"]
+[gd_scene load_steps=3 format=3 uid="uid://dcd61i8aadjpj"]
 
 [ext_resource type="Texture2D" uid="uid://bb25cd2mpx14m" path="res://assets/gfx/world_map/house.png" id="1_lrffs"]
+[ext_resource type="PackedScene" uid="uid://byjj2g2v1nt7e" path="res://scenes/actors/player/inventory.tscn" id="2_sg21t"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,3 +21,10 @@ grow_vertical = 2
 texture = ExtResource("1_lrffs")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="Control" parent="." instance=ExtResource("2_sg21t")]
+layout_mode = 1
+offset_left = 657.0
+offset_top = 49.0
+offset_right = -63.0
+offset_bottom = -270.0
