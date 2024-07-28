@@ -16,6 +16,7 @@ mouse_filter = 2
 script = ExtResource("1_beysf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 202.0
 offset_bottom = 335.0
 mouse_filter = 2
