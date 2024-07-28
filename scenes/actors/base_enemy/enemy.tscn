@@ -23,7 +23,7 @@ script = ExtResource("2_msrxb")
 params = SubResource("Resource_5s4xw")
 element = 1
 skeleton_type = "humanoid"
-max_health = null
+max_health = 1
 
 [node name="Sprite3D" parent="." index="2"]
 texture = SubResource("ViewportTexture_weeuh")

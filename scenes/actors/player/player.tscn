@@ -22,6 +22,7 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 script = ExtResource("2_as5t6")
 params = SubResource("Resource_gve85")
 skeleton_type = "humanoid"
+max_health = 1
 
 [node name="Sprite3D" parent="." index="2"]
 texture = SubResource("ViewportTexture_1k75v")
