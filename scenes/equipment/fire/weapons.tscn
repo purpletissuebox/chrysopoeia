@@ -79,7 +79,7 @@ texture = ExtResource("7_562rm")
 
 [node name="Attack" type="Area3D" parent="."]
 visible = false
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("8_3lo3a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Attack"]
@@ -89,5 +89,3 @@ disabled = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-
-[connection signal="area_entered" from="Attack" to="." method="_on_area_3d_area_entered"]
