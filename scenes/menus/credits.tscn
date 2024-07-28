@@ -94,7 +94,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "EXIT GAME"
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CPadding" type="Control" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
