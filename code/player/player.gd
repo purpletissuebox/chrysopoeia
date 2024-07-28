@@ -4,6 +4,9 @@ class_name Player extends Entity
 
 @onready var p_state_machine = $PStateMachine
 
+func _init():
+	self.my_equipment = Inventory.equipped_items
+
 func _aim_at_point():
 	pass
 
