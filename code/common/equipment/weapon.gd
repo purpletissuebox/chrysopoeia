@@ -16,7 +16,9 @@ class_name EquipmentWeapon extends Equipment
 @export var forearm_R_img: Sprite2D
 @export var hand_R_img: Sprite2D
 
-@onready var weapon = $Area3D
+@onready var weapon = $Attack
+@onready var timer = $Timer if $Timer else null
+@onready var wep_area = $Attack
 var current_handedness: int
 
 signal swing(pos)
@@ -28,13 +30,13 @@ func _init():
 	
 	
 func _physics_process(delta):
-	if $Timer.is_stopped():
-		$Area3D/CollisionShape3D.disabled = true
+	if timer != null and timer.is_stopped():
+		wep_area.find_child("CollisionShape3D").disabled = true
 		
 func swing_triggered(args:Array):
-	$Area3D.position = args[0]
-	$Area3D/CollisionShape3D.disabled = false
-	$Timer.start()
+	wep_area.position = args[0]
+	wep_area.find_child("CollisionShape3D").disabled = false
+	timer.start()
 	
 func set_attacker(entity:Entity):
 	weapon.attacker = entity
