@@ -79,10 +79,10 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "OPTIONS"
 
-[node name="QuitButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "QUIT"
+text = "CREDITS"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -106,4 +106,4 @@ size_flags_stretch_ratio = 22.0
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/InstructionsButton" to="." method="open_instructions"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/OptionsButton" to="." method="open_options"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/QuitButton" to="." method="exit_game"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer/CreditsButton" to="." method="open_credits"]
