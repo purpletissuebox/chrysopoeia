@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ChrysItem" load_steps=3 format=3 uid="uid://d21cvx74bcg2r"]
+
+[ext_resource type="Texture2D" uid="uid://swolhp2tm3hv" path="res://assets/gfx/inventory/items/lizard_tail.png" id="1_knbbd"]
+[ext_resource type="Script" path="res://code/common/equipment/item_on_disk.gd" id="2_q5qbn"]
+
+[resource]
+script = ExtResource("2_q5qbn")
+item_name = "Lizard Tail"
+item_description = "+10% Health
+-15% Movement Speed
+You aren't quite sure how to stand up straight with this..."
+element = 0
+inventory_sprite = ExtResource("1_knbbd")
+path_to_scene = ""
+ingredients = Array[ExtResource("2_q5qbn")]([])
