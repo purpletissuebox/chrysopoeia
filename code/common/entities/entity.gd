@@ -71,6 +71,10 @@ func animate(anim_name:String):
 	if anim_name != current_anim:
 		mySkeleton.play_anim(skeleton_type + "/" + anim_name)
 
+func take_a_swing():
+	var weapon = find_child("EquipmentWeapon")
+	self.broadcast("swing", [self.position])
+
 func _physics_process(_delta):
 	if self.velocity.x < 0:
 		self.scale.x = -1
