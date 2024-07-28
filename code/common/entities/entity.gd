@@ -3,19 +3,18 @@ class_name Entity extends CharacterBody3D
 @export var element: Constants.ELEMENTS
 @export var skeleton_type: String
 @export var max_health: int
-var current_health: int
-var current_anim: String
-var num_hazards: int
 @export var StateMachineParameters: PSMParams
 @export var my_equipment: Array[ChrysItem]
 
+var current_health: int
+var current_anim: String
+var num_hazards: int
 var signals_in_use: Array[String]
 
 @onready var sprite_3d = $Sprite3D
 @onready var area_3d = $Area3D
 @onready var mySkeleton = $Sprite3D/SubViewport/skeleton_root
 @onready var state_machine = $PStateMachine
-
 
 func _ready():
 	for armor in my_equipment:

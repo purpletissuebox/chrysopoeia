@@ -1,26 +1,9 @@
 class_name Enemy extends Entity
 
 @export var params:PSMParams
-@export var helm:PackedScene
-@export var armor:PackedScene
-@export var boots:PackedScene
-@export var weap:PackedScene
 
 @onready var p_state_machine = $PStateMachine
 @onready var player_ref = get_parent().get_node("Player")
-
-var put_clothes_on : bool = false
-
-func setup_equipment():
-	equip(helm.instantiate())
-	equip(armor.instantiate())
-	equip(boots.instantiate())
-	
-	var new_weap = weap.instantiate()
-	equip(new_weap)
-	new_weap.set_attacker(self)
-	
-	put_clothes_on = true
 
 func _get_movement_direction():
 	var result:Vector2 = Vector2.ZERO
