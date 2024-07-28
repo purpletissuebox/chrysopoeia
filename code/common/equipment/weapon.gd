@@ -40,9 +40,3 @@ func swing_triggered(args:Array):
 	
 func set_attacker(entity:Entity):
 	weapon.attacker = entity
-	
-func _on_area_3d_area_entered(area):
-	var entity = area.get_parent()
-	if entity is Player:
-		weapon.hit_something(entity.find_child("Area3D"))
-		
