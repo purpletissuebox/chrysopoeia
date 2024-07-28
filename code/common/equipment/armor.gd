@@ -18,6 +18,6 @@ signal was_hit(args:Array)
 func _init():
 	listeners += ["was_hit"]
 
-func _was_hit_triggered(args:Array):
+func was_hit_triggered(args:Array):
 	print("was hit")
 	pass
