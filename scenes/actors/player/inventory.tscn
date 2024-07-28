@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://byjj2g2v1nt7e"]
+
+[ext_resource type="Script" path="res://code/player/inventory.gd" id="1_jyc35"]
+[ext_resource type="PackedScene" uid="uid://dc10vja5ywjhy" path="res://scenes/actors/player/inventory_slot.tscn" id="2_nbtw0"]
+[ext_resource type="Texture2D" uid="uid://csadddb6y3q55" path="res://assets/gfx/inventory/bkg.png" id="2_yod7t"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.3333
+script = ExtResource("1_jyc35")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_yod7t")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 60
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="TextureRect" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect2" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect3" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect4" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect5" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect6" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect7" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect8" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect9" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect10" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect11" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect12" parent="MarginContainer/GridContainer" instance=ExtResource("2_nbtw0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

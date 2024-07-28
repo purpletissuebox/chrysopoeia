@@ -21,6 +21,7 @@ config/icon="res://assets/gfx/misc/icon.png"
 
 SoundDriver="*res://code/common/sound_driver/sound_driver.gd"
 Constants="*res://code/common/entities/constants.gd"
+Inventory="*res://code/common/equipment/inventory.gd"
 
 [dotnet]
 

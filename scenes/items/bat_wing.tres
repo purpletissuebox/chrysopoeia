@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ChrysItem" load_steps=3 format=3 uid="uid://iptxf3dthmej"]
+
+[ext_resource type="Texture2D" uid="uid://cg0644n1jva7c" path="res://assets/gfx/inventory/items/bat_wing.png" id="1_d1vdt"]
+[ext_resource type="Script" path="res://code/common/equipment/item_on_disk.gd" id="1_kix04"]
+
+[resource]
+script = ExtResource("1_kix04")
+item_name = "Bat Wing"
+item_description = "-10% health
++15% Jump Height
+Its bony membrane is still intact!"
+element = 4
+inventory_sprite = ExtResource("1_d1vdt")
+path_to_scene = ""
+ingredients = Array[ExtResource("1_kix04")]([])

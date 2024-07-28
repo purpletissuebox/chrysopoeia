@@ -3,6 +3,9 @@ extends Control
 func _ready():
 	SoundDriver.playBGM(SoundDriver.BGM_IDS.FIRST_SONG)
 
+func start_game():
+	Constants.change_mode.emit("res://scenes/gameplay/world_map.tscn")
+
 func exit_game():
 	get_tree().quit()
 

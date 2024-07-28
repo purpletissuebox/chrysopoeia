@@ -33,6 +33,15 @@ enum STARSIGNS
 
 enum EQUIP_SLOTS
 {
+	HEAD,
+	CHEST,
+	BOOTS,
+	L_HAND,
+	R_HAND,
+}
+
+enum EQUIP_SLOT_MASKS
+{
 	HEAD = 1 << 0,
 	CHEST = 1 << 0,
 	BOOTS = 1 << 2,

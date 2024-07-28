@@ -7,6 +7,7 @@ var current_health: int
 var current_anim: String
 var num_hazards: int
 @export var StateMachineParameters: PSMParams
+@export var my_equipment: Array[ChrysItem]
 
 var signals_in_use: Array[String]
 
@@ -17,6 +18,9 @@ var signals_in_use: Array[String]
 
 
 func _ready():
+	for armor in my_equipment:
+		equip(load(armor.path_to_scene).instantiate)
+	
 	area_3d.area_entered.connect(update_collisions.bind(1))
 	area_3d.area_exited.connect(update_collisions.bind(-1))
 	
