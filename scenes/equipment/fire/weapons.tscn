@@ -77,12 +77,12 @@ texture = ExtResource("6_5rj8g")
 position = Vector2(908, -67)
 texture = ExtResource("7_562rm")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Attack" type="Area3D" parent="."]
 visible = false
 collision_layer = 0
 script = ExtResource("8_3lo3a")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack"]
 shape = SubResource("BoxShape3D_yvyq5")
 disabled = true
 
@@ -90,4 +90,4 @@ disabled = true
 wait_time = 0.1
 one_shot = true
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Attack" to="." method="_on_area_3d_area_entered"]

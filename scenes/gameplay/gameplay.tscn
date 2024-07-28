@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmhwrg8fl2lym"]
+[gd_scene load_steps=13 format=3 uid="uid://bmhwrg8fl2lym"]
 
 [ext_resource type="PackedScene" uid="uid://ijik3jx1w70t" path="res://scenes/gameplay/stage.tscn" id="1_jdm2r"]
 [ext_resource type="PackedScene" uid="uid://clok42wxnbpwc" path="res://scenes/actors/player/player.tscn" id="2_dp70j"]
+[ext_resource type="PackedScene" uid="uid://clhhco3wwv4ka" path="res://scenes/equipment/default/helmet.tscn" id="3_3eoxb"]
 [ext_resource type="PackedScene" uid="uid://qgnp2ba637ev" path="res://scenes/actors/base_enemy/enemy.tscn" id="3_i0547"]
+[ext_resource type="PackedScene" uid="uid://b4bm3q8g1hk8l" path="res://scenes/equipment/default/armor.tscn" id="4_ees3k"]
 [ext_resource type="PackedScene" uid="uid://d26pr42ss4dud" path="res://scenes/equipment/fire/helmet.tscn" id="4_fjb0l"]
 [ext_resource type="PackedScene" uid="uid://dkrfbhnwsun10" path="res://scenes/equipment/fire/armor.tscn" id="5_5hvs4"]
+[ext_resource type="PackedScene" uid="uid://bjv1ctxqrcr0x" path="res://scenes/equipment/default/boots.tscn" id="5_osxw6"]
 [ext_resource type="PackedScene" uid="uid://ouiwxa32600w" path="res://scenes/equipment/fire/boots.tscn" id="6_favwb"]
+[ext_resource type="PackedScene" uid="uid://bcuf25cakks3s" path="res://scenes/equipment/default/weapons.tscn" id="6_h5ygy"]
 [ext_resource type="PackedScene" uid="uid://cxtedo41yl8yf" path="res://scenes/equipment/fire/weapons.tscn" id="7_mluqd"]
 
 [sub_resource type="Environment" id="Environment_gq5b5"]
@@ -28,6 +32,10 @@ far = 100.0
 [node name="Player" parent="." instance=ExtResource("2_dp70j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34319, 5.09733)
 max_health = 1
+helm = ExtResource("3_3eoxb")
+armor = ExtResource("4_ees3k")
+boots = ExtResource("5_osxw6")
+weap = ExtResource("6_h5ygy")
 
 [node name="SophmoreEnemy" parent="." instance=ExtResource("3_i0547")]
 helm = ExtResource("4_fjb0l")
