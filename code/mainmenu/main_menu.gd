@@ -14,3 +14,6 @@ func open_options():
 
 func open_instructions():
 	self.add_child(load("res://scenes/menus/instructions.tscn").instantiate())
+	
+func open_credits():
+	self.add_child(load("res://scenes/menus/credits.tscn").instantiate())

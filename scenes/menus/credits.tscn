@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=3 uid="uid://c01gbky3d2nlb"]
+
+[ext_resource type="Script" path="res://code/credits/credits.gd" id="1_hbx1n"]
+[ext_resource type="Texture2D" uid="uid://jfo80grmdwy0" path="res://assets/gfx/misc/logo.png" id="2_gwhcu"]
+[ext_resource type="Texture2D" uid="uid://cmf0g6kb7nbkk" path="res://assets/gfx/mainmenu/logo.png" id="3_jcghv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qa751"]
+font_size = 18
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbx1n")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_gwhcu")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="LPadding" type="Control" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_jcghv")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TPadding2" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+text = "Team:
+purpletissuebox: Lead Developer
+HarrisonWine: Developer
+DesktopCoder1407: Developer
+MadLad: Artist"
+label_settings = SubResource("LabelSettings_qa751")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="ExitGameButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "EXIT GAME"
+
+[node name="CPadding" type="Control" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="ExitButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CLOSE"
+
+[node name="BPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="RPadding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/ExitGameButton" to="." method="exit_game"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="exit_credits"]

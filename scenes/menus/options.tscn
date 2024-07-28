@@ -2,15 +2,108 @@
 
 [ext_resource type="Script" path="res://code/options/options.gd" id="1_4yl5e"]
 
-[node name="Button" type="Button"]
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "WELCOME TO THE OPTIONS MENU
-
-CLICK ANYWHERE TO CLOSE"
 script = ExtResource("1_4yl5e")
 
-[connection signal="pressed" from="." to="." method="exit_options"]
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.15, 0.15, 0.784314)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LPadding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MusicVolumeOption" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/MusicVolumeOption"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+text = "Music Volume   "
+
+[node name="Slider" type="HSlider" parent="HBoxContainer/VBoxContainer/MusicVolumeOption"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 5.0
+tick_count = 21
+
+[node name="Edit" type="SpinBox" parent="HBoxContainer/VBoxContainer/MusicVolumeOption"]
+layout_mode = 2
+alignment = 1
+
+[node name="SFXVolumeOption" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/SFXVolumeOption"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+text = "SFX Volume       "
+
+[node name="Slider" type="HSlider" parent="HBoxContainer/VBoxContainer/SFXVolumeOption"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 5.0
+tick_count = 21
+
+[node name="Edit" type="SpinBox" parent="HBoxContainer/VBoxContainer/SFXVolumeOption"]
+layout_mode = 2
+alignment = 1
+
+[node name="CPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="SaveButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SAVE AND CLOSE"
+
+[node name="BPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="RPadding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/MusicVolumeOption/Slider" to="." method="music_volume_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/MusicVolumeOption/Edit" to="." method="music_volume_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/SFXVolumeOption/Slider" to="." method="sfx_volume_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/SFXVolumeOption/Edit" to="." method="sfx_volume_changed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="exit_options"]
