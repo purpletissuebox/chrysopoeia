@@ -81,12 +81,15 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
-text = "   SAVE AND CLOSE   "
+
+[node name="SaveButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SAVE AND CLOSE"
 
 [node name="BPadding" type="Control" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -103,4 +106,4 @@ size_flags_stretch_ratio = 0.25
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/MusicVolumeOption/Edit" to="." method="music_volume_changed"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/SFXVolumeOption/Slider" to="." method="sfx_volume_changed"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/SFXVolumeOption/Edit" to="." method="sfx_volume_changed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/SaveButton" to="." method="exit_options"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="exit_options"]
