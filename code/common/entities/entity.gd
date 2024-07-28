@@ -31,7 +31,7 @@ func swap_params(clean_params: PSMParams):
 	state_machine.params = self.params.duplicate()
 	self.params = clean_params.duplicate()
 
-func update_collisions(x: int):
+func update_collisions(attack:Area3D, x:int):
 	num_hazards += x
 
 func broadcast(event: String, args: Array):
