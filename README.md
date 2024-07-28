@@ -38,7 +38,7 @@ People with too much time on their hands.
  - purpletissuebox : Lead Developer
  - HarrisonWine : Developer
  - DesktopCoder1407 : Developer
- - MadLad1116 : Artist
+ - MadLad : Artist
    
 ## Lessons Learned
  - [Lessons Learned from this Game Jam]
