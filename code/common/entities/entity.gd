@@ -32,6 +32,9 @@ func swap_params(clean_params: PSMParams):
 	self.params = clean_params.duplicate()
 
 func update_collisions(attack:Area3D, x:int):
+	if attack.get_parent().get_parent() == self:
+		return
+
 	num_hazards += x
 
 func broadcast(event: String, args: Array):
