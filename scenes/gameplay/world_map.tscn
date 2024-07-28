@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhi8yio1avm5m"]
+
+[ext_resource type="Texture2D" uid="uid://unwhwav5rc6m" path="res://assets/gfx/world_map/bkg.png" id="1_5mans"]
+[ext_resource type="Script" path="res://code/mainmenu/world_map.gd" id="1_aj6ny"]
+[ext_resource type="Texture2D" uid="uid://dq08gsgjkkgdm" path="res://assets/gfx/world_map/fg.png" id="2_o4nwf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eesxq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hjcm"]
+bg_color = Color(1, 0.917647, 0.278431, 0)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+shadow_color = Color(1, 0.951, 0.58, 0.556863)
+shadow_size = 90
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbwco"]
+
+[node name="World Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aj6ny")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_5mans")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="ColorRect1" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eesxq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xbwco")
+
+[node name="ColorRect3" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eesxq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xbwco")
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eesxq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xbwco")
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eesxq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xbwco")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="ColorRect1" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eesxq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4hjcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xbwco")
+
+[node name="ColorRect3" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)
+
+[node name="background2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_o4nwf")
+expand_mode = 1
+stretch_mode = 6
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="visit_place" binds= [0]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/Button" to="." method="visit_place" binds= [3]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/Button2" to="." method="visit_place" binds= [4]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/Button3" to="." method="visit_place" binds= [1]]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer3/Button2" to="." method="visit_place" binds= [2]]
