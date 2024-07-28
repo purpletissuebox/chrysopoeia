@@ -2,16 +2,25 @@
 
 [ext_resource type="Script" path="res://code/options/options.gd" id="1_4yl5e"]
 
-[node name="BackgroundColor" type="ColorRect"]
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4yl5e")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.5, 0.5, 0.5, 0.501961)
-script = ExtResource("1_4yl5e")
 
-[node name="Button" type="Button" parent="."]
+[node name="SaveButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -27,36 +36,33 @@ grow_vertical = 0
 text = "SAVE AND CLOSE
 "
 
-[node name="VolumeOption" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Slider" type="HSlider" parent="VolumeOption"]
-layout_mode = 0
-offset_left = 410.0
-offset_top = 161.0
-offset_right = 732.0
-offset_bottom = 248.0
-step = 5.0
-value = 100.0
-tick_count = 19
-ticks_on_borders = true
-
-[node name="Edit" type="LineEdit" parent="VolumeOption"]
-layout_mode = 0
-offset_left = 766.0
-offset_top = 188.0
-offset_right = 833.062
-offset_bottom = 219.0
+[node name="VolumeOption" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Name" type="Label" parent="VolumeOption"]
-layout_mode = 0
-offset_left = 289.0
-offset_top = 195.0
-offset_right = 391.0
-offset_bottom = 218.0
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
 text = "Main Volume"
 
+[node name="Slider" type="HSlider" parent="VolumeOption"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 5.0
+tick_count = 21
+
+[node name="Edit" type="SpinBox" parent="VolumeOption"]
+layout_mode = 2
+alignment = 1
+
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="pressed" from="Button" to="." method="exit_options"]
+[connection signal="pressed" from="SaveButton" to="." method="exit_options"]
+[connection signal="value_changed" from="VolumeOption/Slider" to="." method="volume_changed"]
+[connection signal="value_changed" from="VolumeOption/Edit" to="." method="volume_changed"]
