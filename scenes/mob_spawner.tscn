@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6cbfstbplj0k"]
+
+[ext_resource type="Script" path="res://scenes/mob_spawner.gd" id="1_ete6r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_esg1g"]
+
+[node name="MobSpawner" type="Node"]
+script = ExtResource("1_ete6r")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_esg1g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
