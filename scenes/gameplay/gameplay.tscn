@@ -1,17 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmhwrg8fl2lym"]
+[gd_scene load_steps=10 format=3 uid="uid://bmhwrg8fl2lym"]
 
 [ext_resource type="PackedScene" uid="uid://ijik3jx1w70t" path="res://scenes/gameplay/stage.tscn" id="1_jdm2r"]
 [ext_resource type="PackedScene" uid="uid://clok42wxnbpwc" path="res://scenes/actors/player/player.tscn" id="2_dp70j"]
 [ext_resource type="PackedScene" uid="uid://qgnp2ba637ev" path="res://scenes/actors/base_enemy/enemy.tscn" id="3_i0547"]
-[ext_resource type="PackedScene" uid="uid://d26pr42ss4dud" path="res://scenes/equipment/fire/helmet.tscn" id="4_fjb0l"]
-[ext_resource type="PackedScene" uid="uid://dkrfbhnwsun10" path="res://scenes/equipment/fire/armor.tscn" id="5_5hvs4"]
-[ext_resource type="PackedScene" uid="uid://ouiwxa32600w" path="res://scenes/equipment/fire/boots.tscn" id="6_favwb"]
-[ext_resource type="PackedScene" uid="uid://cxtedo41yl8yf" path="res://scenes/equipment/fire/weapons.tscn" id="7_mluqd"]
+[ext_resource type="Script" path="res://code/common/equipment/item_on_disk.gd" id="4_bwebt"]
+[ext_resource type="Texture2D" uid="uid://cmdqgqfgvyc4k" path="res://scenes/equipment/fire/chest.png" id="4_eauf3"]
+[ext_resource type="Texture2D" uid="uid://bxa3f100ddw5h" path="res://scenes/equipment/fire/sword.png" id="6_1oqnl"]
 
 [sub_resource type="Environment" id="Environment_gq5b5"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
+
+[sub_resource type="Resource" id="Resource_lj64r"]
+script = ExtResource("4_bwebt")
+item_name = "Firemail"
+item_description = ""
+element = 2
+inventory_sprite = ExtResource("4_eauf3")
+path_to_scene = "res://scenes/equipment/fire/armor.tscn"
+ingredients = Array[ExtResource("4_bwebt")]([])
+
+[sub_resource type="Resource" id="Resource_t8sdc"]
+script = ExtResource("4_bwebt")
+item_name = "fire_weapon"
+item_description = ""
+element = 0
+inventory_sprite = ExtResource("6_1oqnl")
+path_to_scene = "res://scenes/equipment/fire/weapons.tscn"
+ingredients = Array[ExtResource("4_bwebt")]([])
 
 [node name="Node3D" type="Node3D"]
 
@@ -27,10 +44,6 @@ far = 100.0
 
 [node name="Player" parent="." instance=ExtResource("2_dp70j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34319, 5.09733)
-max_health = 1
 
 [node name="SophmoreEnemy" parent="." instance=ExtResource("3_i0547")]
-helm = ExtResource("4_fjb0l")
-armor = ExtResource("5_5hvs4")
-boots = ExtResource("6_favwb")
-weap = ExtResource("7_mluqd")
+my_equipment = Array[ExtResource("4_bwebt")]([SubResource("Resource_lj64r"), SubResource("Resource_t8sdc")])

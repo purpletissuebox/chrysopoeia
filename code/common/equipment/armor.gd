@@ -12,3 +12,12 @@ class_name  EquipmentArmor extends Equipment
 @export var chest_img: Sprite2D
 
 @export var height: float = 1000
+
+signal was_hit(args:Array)
+
+func _init():
+	listeners += ["was_hit"]
+
+func was_hit_triggered(args:Array):
+	print("was hit")
+	pass

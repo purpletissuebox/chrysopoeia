@@ -21,11 +21,9 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 [node name="SophmoreEnemy" instance=ExtResource("1_n0cdn")]
 script = ExtResource("2_msrxb")
 params = SubResource("Resource_5s4xw")
-helm = null
-armor = null
-boots = null
-weap = null
+element = 1
 skeleton_type = "humanoid"
+max_health = 1
 
 [node name="Sprite3D" parent="." index="2"]
 texture = SubResource("ViewportTexture_weeuh")
