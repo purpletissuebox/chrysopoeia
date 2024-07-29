@@ -7,8 +7,6 @@ class_name Enemy extends Entity
 
 func _get_movement_direction():
 	var result:Vector2 = Vector2.ZERO
-	if !put_clothes_on:
-		setup_equipment()
 
 	if player_ref != null:
 		var direction_to_player = player_ref.position-self.position
