@@ -2,14 +2,19 @@ extends Node
 
 @export var mob : Entity
 @export var global_limit : int = 0
-@export var self_limit : int = 0
-@export var equipment_list : Dictionary = {
-	"helms": Array[ChrysItem],
-	"armor": Array[ChrysItem],
-	"boots": Array[ChrysItem],
-	"weapons": Array[ChrysItem],
+@export var spawn_count  : int = 0
+@export var helm_list    : Array[ChrysItem]
+@export var armor_list   : Array[ChrysItem]
+@export var boots_list   : Array[ChrysItem]
+@export var weapons_list : Array[ChrysItem]
+
+var equipment_list : Dictionary = {
+	"helms": helm_list,
+	"armor": armor_list,
+	"boots": boots_list,
+	"weapons": weapons_list,
 }
-@export var spawn_point : Vector3
+@onready var spawn_point = $Marker3D.position
 @onready var rng = RandomNumberGenerator.new()
 
 func pick_equipment(key:String, dict:Dictionary)->ChrysItem:
@@ -23,8 +28,11 @@ func generate_equipment()->Array[ChrysItem]:
 	return equipment
 		
 func spawn_mob():
-	var newborn =  mob.instantiate()
+	if spawn_count == global_limit:
+		return
+	
+	var newborn = mob.instantiate()
 	newborn.myequipment += generate_equipment()
 	newborn.position = spawn_point
 	add_child(newborn)
-	
+	spawn_count += 1
