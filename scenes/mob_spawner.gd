@@ -1,6 +1,6 @@
 extends Node
 
-@export var mob : Entity
+@export var mob : PackedScene
 @export var global_limit : int = 0
 @export var spawn_count  : int = 0
 @export var helm_list    : Array[ChrysItem]
@@ -14,16 +14,18 @@ var equipment_list : Dictionary = {
 	"boots": boots_list,
 	"weapons": weapons_list,
 }
-@onready var spawn_point = $Marker3D.position
+
 @onready var rng = RandomNumberGenerator.new()
 
 func pick_equipment(key:String, dict:Dictionary)->ChrysItem:
-	return equipment_list[key][rng.randi_range(0,len(equipment_list[key]))]
+	var list = dict[key]
+	return dict[key][rng.randi_range(0,len(list))]
 
 func generate_equipment()->Array[ChrysItem]:
 	var equipment : Array[ChrysItem]
 	for key in equipment_list.keys():
-		equipment += [pick_equipment(key, equipment_list)]
+		if len(equipment_list) > 0:
+			equipment += [pick_equipment(key, equipment_list)]
 	
 	return equipment
 		
@@ -33,6 +35,6 @@ func spawn_mob():
 	
 	var newborn = mob.instantiate()
 	newborn.myequipment += generate_equipment()
-	newborn.position = spawn_point
+	newborn.position = self.position
 	add_child(newborn)
 	spawn_count += 1

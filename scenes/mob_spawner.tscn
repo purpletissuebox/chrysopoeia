@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_esg1g"]
 
-[node name="MobSpawner" type="Node"]
+[node name="MobSpawner" type="Marker3D"]
 script = ExtResource("1_ete6r")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -14,7 +14,6 @@ shape = SubResource("BoxShape3D_esg1g")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
-
-[node name="Marker3D" type="Marker3D" parent="."]
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="spawn_mob"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmhwrg8fl2lym"]
+[gd_scene load_steps=12 format=3 uid="uid://bmhwrg8fl2lym"]
 
 [ext_resource type="PackedScene" uid="uid://ijik3jx1w70t" path="res://scenes/gameplay/stage.tscn" id="1_jdm2r"]
 [ext_resource type="PackedScene" uid="uid://clok42wxnbpwc" path="res://scenes/actors/player/player.tscn" id="2_dp70j"]
@@ -7,11 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://dkrfbhnwsun10" path="res://scenes/equipment/fire/armor.tscn" id="5_5hvs4"]
 [ext_resource type="PackedScene" uid="uid://ouiwxa32600w" path="res://scenes/equipment/fire/boots.tscn" id="6_favwb"]
 [ext_resource type="PackedScene" uid="uid://cxtedo41yl8yf" path="res://scenes/equipment/fire/weapons.tscn" id="7_mluqd"]
+[ext_resource type="PackedScene" uid="uid://6cbfstbplj0k" path="res://scenes/mob_spawner.tscn" id="8_tghu5"]
+[ext_resource type="Script" path="res://code/common/equipment/item_on_disk.gd" id="9_f81o3"]
 
 [sub_resource type="Environment" id="Environment_gq5b5"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
+
+[sub_resource type="Resource" id="Resource_b7gqn"]
+script = ExtResource("9_f81o3")
+item_name = ""
+item_description = ""
+element = 0
+path_to_scene = "res://scenes/equipment/default/helmet.tscn"
+ingredients = Array[ExtResource("9_f81o3")]([])
 
 [node name="Node3D" type="Node3D"]
 
@@ -34,3 +44,8 @@ helm = ExtResource("4_fjb0l")
 armor = ExtResource("5_5hvs4")
 boots = ExtResource("6_favwb")
 weap = ExtResource("7_mluqd")
+
+[node name="MobSpawner" parent="." instance=ExtResource("8_tghu5")]
+mob = ExtResource("3_i0547")
+global_limit = 1
+helm_list = Array[ExtResource("9_f81o3")]([SubResource("Resource_b7gqn")])
