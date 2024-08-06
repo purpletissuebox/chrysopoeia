@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmhwrg8fl2lym"]
+[gd_scene load_steps=10 format=3 uid="uid://bmhwrg8fl2lym"]
 
 [ext_resource type="PackedScene" uid="uid://ijik3jx1w70t" path="res://scenes/gameplay/stage.tscn" id="1_jdm2r"]
 [ext_resource type="PackedScene" uid="uid://clok42wxnbpwc" path="res://scenes/actors/player/player.tscn" id="2_dp70j"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://6cbfstbplj0k" path="res://scenes/mob_spawner.tscn" id="8_tghu5"]
 [ext_resource type="Script" path="res://code/common/equipment/item_on_disk.gd" id="9_f81o3"]
 
+
 [sub_resource type="Environment" id="Environment_gq5b5"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
+
 
 [sub_resource type="Resource" id="Resource_b7gqn"]
 script = ExtResource("9_f81o3")
@@ -27,6 +29,7 @@ element = 0
 path_to_scene = "res://scenes/equipment/fire/armor.tscn"
 ingredients = Array[ExtResource("9_f81o3")]([])
 
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -41,10 +44,11 @@ far = 100.0
 
 [node name="Player" parent="." instance=ExtResource("2_dp70j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34319, 5.09733)
-max_health = 1
+
 
 [node name="MobSpawner" parent="." instance=ExtResource("8_tghu5")]
 mob = ExtResource("3_i0547")
 global_limit = 1
 helm_list = Array[ExtResource("9_f81o3")]([SubResource("Resource_b7gqn")])
 armor_list = Array[ExtResource("9_f81o3")]([SubResource("Resource_k2ruk")])
+

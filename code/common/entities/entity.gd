@@ -3,19 +3,18 @@ class_name Entity extends CharacterBody3D
 @export var element: Constants.ELEMENTS
 @export var skeleton_type: String
 @export var max_health: int
-var current_health: int
-var current_anim: String
-var num_hazards: int
 @export var StateMachineParameters: PSMParams
 @export var my_equipment: Array[ChrysItem]
 
+var current_health: int
+var current_anim: String
+var num_hazards: int
 var signals_in_use: Array[String]
 
 @onready var sprite_3d = $Sprite3D
 @onready var area_3d = $Area3D
 @onready var mySkeleton = $Sprite3D/SubViewport/skeleton_root
 @onready var state_machine = $PStateMachine
-
 
 func _ready():
 	for armor in my_equipment:
@@ -32,7 +31,10 @@ func swap_params(clean_params: PSMParams):
 	state_machine.params = self.params.duplicate()
 	self.params = clean_params.duplicate()
 
-func update_collisions(x: int):
+func update_collisions(attack:Area3D, x:int):
+	if attack.get_parent().get_parent() == self:
+		return
+
 	num_hazards += x
 
 func broadcast(event: String, args: Array):
@@ -44,8 +46,12 @@ func equip(item: Equipment):
 		if sig not in signals_in_use:
 			self.add_user_signal(sig)
 			signals_in_use.append(sig)
+		
 		self.connect(sig, Callable(item, sig + "_triggered"))
-		self.add_child(item)
+	for child in item.get_children():
+		if child is Sprite2D:
+			child.queue_free()
+	self.add_child(item)
 	
 	if item is EquipmentHelm:
 		$Sprite3D/SubViewport/skeleton_root.swap_helmet(item)
@@ -64,6 +70,10 @@ func unequip(item: Equipment):
 func animate(anim_name:String):
 	if anim_name != current_anim:
 		mySkeleton.play_anim(skeleton_type + "/" + anim_name)
+
+func take_a_swing():
+	var weapon = find_child("EquipmentWeapon")
+	self.broadcast("swing", [self.position])
 
 func _physics_process(_delta):
 	if self.velocity.x < 0:
