@@ -24,7 +24,7 @@ func pick_equipment(key:String, dict:Dictionary)->ChrysItem:
 func generate_equipment()->Array[ChrysItem]:
 	var equipment : Array[ChrysItem]
 	for key in equipment_list.keys():
-		if len(equipment_list) > 0:
+		if len(equipment_list[key]) > 0:
 			equipment += [pick_equipment(key, equipment_list)]
 	
 	return equipment
@@ -34,7 +34,7 @@ func spawn_mob():
 		return
 	
 	var newborn = mob.instantiate()
-	newborn.myequipment += generate_equipment()
+	newborn.my_equipment += generate_equipment()
 	newborn.position = self.position
 	add_child(newborn)
 	spawn_count += 1
