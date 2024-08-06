@@ -8,7 +8,7 @@ extends Node
 @export var boots_list   : Array[ChrysItem]
 @export var weapons_list : Array[ChrysItem]
 
-var equipment_list : Dictionary = {
+@onready var equipment_list : Dictionary = {
 	"helms": helm_list,
 	"armor": armor_list,
 	"boots": boots_list,
@@ -19,12 +19,13 @@ var equipment_list : Dictionary = {
 
 func pick_equipment(key:String, dict:Dictionary)->ChrysItem:
 	var list = dict[key]
-	return dict[key][rng.randi_range(0,len(list))]
+	return dict[key][rng.randi_range(0,len(list)-1)]
 
 func generate_equipment()->Array[ChrysItem]:
 	var equipment : Array[ChrysItem]
 	for key in equipment_list.keys():
 		if len(equipment_list[key]) > 0:
+			
 			equipment += [pick_equipment(key, equipment_list)]
 	
 	return equipment

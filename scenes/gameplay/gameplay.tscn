@@ -13,7 +13,7 @@ reflected_light_source = 1
 
 [sub_resource type="Resource" id="Resource_b7gqn"]
 script = ExtResource("9_f81o3")
-item_name = ""
+item_name = "fire_helm"
 item_description = ""
 element = 0
 path_to_scene = "res://scenes/equipment/default/helmet.tscn"
@@ -21,7 +21,7 @@ ingredients = Array[ExtResource("9_f81o3")]([])
 
 [sub_resource type="Resource" id="Resource_k2ruk"]
 script = ExtResource("9_f81o3")
-item_name = ""
+item_name = "fire_chest"
 item_description = ""
 element = 0
 path_to_scene = "res://scenes/equipment/fire/armor.tscn"
