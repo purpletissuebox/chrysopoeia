@@ -1,14 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://qgnp2ba637ev"]
+[gd_scene load_steps=7 format=3 uid="uid://qgnp2ba637ev"]
 
 [ext_resource type="PackedScene" uid="uid://b8wbhcgwtflet" path="res://scenes/actors/entity.tscn" id="1_n0cdn"]
 [ext_resource type="Script" path="res://code/common/entities/enemy-proto.gd" id="2_msrxb"]
 [ext_resource type="Script" path="res://code/player/psm_params.gd" id="3_dp0fi"]
 
-[sub_resource type="Resource" id="Resource_5s4xw"]
+[sub_resource type="Resource" id="Resource_v227v"]
 script = ExtResource("3_dp0fi")
 gravity = 7.0
 acceleration = 40.0
-top_speed = 3.0
+top_speed = 4.0
+jump_force = 4.0
+fall_threshold = 0.75
+stuntimer = 0.3
+friction = 20.0
+skid_threshold = 0.1
+
+[sub_resource type="Resource" id="Resource_lh4ed"]
+script = ExtResource("3_dp0fi")
+gravity = 7.0
+acceleration = 40.0
+top_speed = 4.0
 jump_force = 4.0
 fall_threshold = 0.75
 stuntimer = 0.3
@@ -20,6 +31,7 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="SophmoreEnemy" instance=ExtResource("1_n0cdn")]
 script = ExtResource("2_msrxb")
+
 params = SubResource("Resource_5s4xw")
 element = 1
 skeleton_type = "humanoid"
